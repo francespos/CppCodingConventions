@@ -1,2 +1,2 @@
 # Cpp Coding Conventions
-Work in progress.
+Work in progress
