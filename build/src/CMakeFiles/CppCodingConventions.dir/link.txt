@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/CppCodingConventions.dir/MyProgram.cpp.o CMakeFiles/CppCodingConventions.dir/Math/Vector3.cpp.o -o /home/francespos/Documenti/cpp/CppCodingConventions/bin/CppCodingConventions  -lm

@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/francespos/Documenti/cpp/CppCodingConventions/build/cmake_install.cmake",
+		"/home/francespos/Documenti/cpp/CppCodingConventions/build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/francespos/Documenti/cpp/CppCodingConventions/build/src",
+  "command": "/usr/bin/g++  -I/home/francespos/Documenti/cpp/CppCodingConventions/src/../include -g -std=gnu++17 -o CMakeFiles/CppCodingConventions.dir/MyProgram.cpp.o -c /home/francespos/Documenti/cpp/CppCodingConventions/src/MyProgram.cpp",
+  "file": "/home/francespos/Documenti/cpp/CppCodingConventions/src/MyProgram.cpp",
+  "output": "src/CMakeFiles/CppCodingConventions.dir/MyProgram.cpp.o"
+},
+{
+  "directory": "/home/francespos/Documenti/cpp/CppCodingConventions/build/src",
+  "command": "/usr/bin/g++  -I/home/francespos/Documenti/cpp/CppCodingConventions/src/../include -g -std=gnu++17 -o CMakeFiles/CppCodingConventions.dir/Math/Vector3.cpp.o -c /home/francespos/Documenti/cpp/CppCodingConventions/src/Math/Vector3.cpp",
+  "file": "/home/francespos/Documenti/cpp/CppCodingConventions/src/Math/Vector3.cpp",
+  "output": "src/CMakeFiles/CppCodingConventions.dir/Math/Vector3.cpp.o"
+}
+]
