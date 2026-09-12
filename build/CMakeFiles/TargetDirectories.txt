@@ -1,5 +1,0 @@
-/home/francespos/Documenti/cpp/CppCodingConventions/build/CMakeFiles/edit_cache.dir
-/home/francespos/Documenti/cpp/CppCodingConventions/build/CMakeFiles/rebuild_cache.dir
-/home/francespos/Documenti/cpp/CppCodingConventions/build/src/CMakeFiles/CppCodingConventions.dir
-/home/francespos/Documenti/cpp/CppCodingConventions/build/src/CMakeFiles/edit_cache.dir
-/home/francespos/Documenti/cpp/CppCodingConventions/build/src/CMakeFiles/rebuild_cache.dir
