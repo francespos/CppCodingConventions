@@ -1,5 +1,5 @@
-add_executable(CppCodingConventions MyProgram.cpp Math/Vector3.cpp)
+add_executable(CppCodingConventions main.cpp math/Vector3d.cpp foo/foo.cpp)
 set_property(TARGET CppCodingConventions PROPERTY CXX_STANDARD 17)
 
-target_link_libraries(CppCodingConventions PUBLIC m)
-target_include_directories(CppCodingConventions PUBLIC ../include)
+target_link_libraries(CppCodingConventions PRIVATE m)
+target_include_directories(CppCodingConventions PRIVATE ../include)
