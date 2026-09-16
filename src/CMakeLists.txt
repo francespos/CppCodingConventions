@@ -1,4 +1,8 @@
-add_executable(CppCodingConventions main.cpp math/Vector3d.cpp foo/foo.cpp)
+add_executable(CppCodingConventions)
+
+target_sources(CppCodingConventions PRIVATE main.cpp math/Vector3.cpp math/Vector3.cpp
+    math/Matrix33.cpp foo/foo.cpp)
+
 set_property(TARGET CppCodingConventions PROPERTY CXX_STANDARD 17)
 
 target_link_libraries(CppCodingConventions PRIVATE m)

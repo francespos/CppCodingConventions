@@ -1,9 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <iostream>
 #include <memory>
-#include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -38,6 +36,8 @@ public:
         : m_name{name}, m_age{age}
     {
     }
+
+    virtual ~Animal() = default;
 
     virtual std::string Name() const 
     {
@@ -74,8 +74,6 @@ public:
     {
     }
 
-    virtual ~Dog() = default;
-
     virtual std::string Sound() const override
     {
         return "Woof!";
@@ -89,8 +87,6 @@ public:
         : Animal{name, age}
     {
     }
-
-    virtual ~Cat() = default;
 
     virtual std::string Sound() const override
     {

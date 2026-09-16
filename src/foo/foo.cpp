@@ -1,5 +1,8 @@
 #include <foo/foo.hpp>
 
+#include <iostream>
+#include <sstream>
+
 namespace foo {
 
 std::string ToString(GreekLetter letter) 
