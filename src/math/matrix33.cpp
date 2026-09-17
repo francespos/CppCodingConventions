@@ -4,6 +4,14 @@
 
 namespace math {
 
+Matrix33& Matrix33::operator=(const Matrix33& other) {
+    m_rows[0] = other[0];
+    m_rows[1] = other[1];
+    m_rows[2] = other[2];
+
+    return *this;
+}
+
 Matrix33& Matrix33::operator+=(const Matrix33& other) {
     *this = *this + other;
     return *this;

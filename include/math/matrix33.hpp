@@ -21,6 +21,8 @@ public:
         , m_m10(other.m_m10), m_m11(other.m_m11), m_m12(other.m_m12)
         , m_m20(other.m_m20), m_m21(other.m_m21), m_m22(other.m_m22) {}
 
+    Matrix33& operator=(const Matrix33& other);
+
     const Vector3& operator[](std::size_t index) const { return m_rows[index]; }
     Vector3& operator[](std::size_t index) { return m_rows[index]; }
 
