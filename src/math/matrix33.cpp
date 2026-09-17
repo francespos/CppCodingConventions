@@ -29,29 +29,27 @@ bool Matrix33::IsNull() const {
 }
 
 float Matrix33::Norm() const {
-    return std::sqrt(m00 * m00 + m01 * m01 + m02 * m02 +
-        m10 * m10 + m11 * m11 + m12 * m12 + 
-        m20 * m20 + m21 * m21 + m22 * m22);
+    return std::sqrt(m_m00 * m_m00 + m_m01 * m_m01 + m_m02 * m_m02 +
+        m_m10 * m_m10 + m_m11 * m_m11 + m_m12 * m_m12 + 
+        m_m20 * m_m20 + m_m21 * m_m21 + m_m22 * m_m22);
 }
 
 void Matrix33::Normalize() {
     auto norm = Norm();
 
-    rows[0] /= norm;
-    rows[1] /= norm;
-    rows[2] /= norm;
+    m_rows[0] /= norm;
+    m_rows[1] /= norm;
+    m_rows[2] /= norm;
 }
 
 std::string Matrix33::ToString() const {
     std::ostringstream outputStringStream;
-    outputStringStream << rows[0] << ", " << rows[1] << ", " << rows[2];
+    outputStringStream << m_rows[0] << ", " << m_rows[1] << ", " << m_rows[2];
     return outputStringStream.str();
 }
 
 bool operator==(const Matrix33& lhs, const Matrix33& rhs) {  
-    return lhs.rows[0] == rhs.rows[0] &&
-        lhs.rows[1] == rhs.rows[1] &&
-        lhs.rows[2] == rhs.rows[2];
+    return lhs[0] == rhs[0] && lhs[1] == rhs[1] && lhs[2] == rhs[2];
 }
 
 bool operator!=(const Matrix33& lhs, const Matrix33& rhs) {
@@ -59,11 +57,11 @@ bool operator!=(const Matrix33& lhs, const Matrix33& rhs) {
 }
 
 Matrix33 operator+(const Matrix33& lhs, const Matrix33& rhs) {
-    Matrix33 result{lhs};
+    Matrix33 result(lhs);
 
-    result.rows[0] += rhs.rows[0];
-    result.rows[1] += rhs.rows[1];
-    result.rows[2] += rhs.rows[2];
+    result[0] += rhs[0];
+    result[1] += rhs[1];
+    result[2] += rhs[2];
 
     return result;
 }
@@ -71,9 +69,9 @@ Matrix33 operator+(const Matrix33& lhs, const Matrix33& rhs) {
 Matrix33 operator-(const Matrix33& lhs, const Matrix33& rhs) {
     Matrix33 result(lhs);
 
-    result.rows[0] -= rhs.rows[0];
-    result.rows[1] -= rhs.rows[1];
-    result.rows[2] -= rhs.rows[2];
+    result[0] -= rhs[0];
+    result[1] -= rhs[1];
+    result[2] -= rhs[2];
 
     return result;
 }
@@ -99,9 +97,9 @@ Matrix33 operator*(float scalar, const Matrix33& matrix) {
 Matrix33 operator*(const Matrix33& matrix, float scalar) {
     Matrix33 result(matrix);
 
-    result.rows[0] *= scalar;
-    result.rows[1] *= scalar;
-    result.rows[2] *= scalar;
+    result[0] *= scalar;
+    result[1] *= scalar;
+    result[2] *= scalar;
 
     return result;
 }
@@ -109,23 +107,23 @@ Matrix33 operator*(const Matrix33& matrix, float scalar) {
 Matrix33 operator/(const Matrix33& matrix, float scalar) {
     Matrix33 result(matrix);
 
-    result.rows[0] /= scalar;
-    result.rows[1] /= scalar;
-    result.rows[2] /= scalar;
+    result[0] /= scalar;
+    result[1] /= scalar;
+    result[2] /= scalar;
 
     return result;
 }
 
 Vector3 operator*(const Matrix33& matrix, const Vector3& vector) {
-    auto x = Vector3::Dot(matrix.rows[0], vector);
-    auto y = Vector3::Dot(matrix.rows[1], vector);
-    auto z = Vector3::Dot(matrix.rows[2], vector);
+    auto x = Dot(matrix[0], vector);
+    auto y = Dot(matrix[1], vector);
+    auto z = Dot(matrix[2], vector);
 
     return Vector3(x, y, z);
 }
 
 std::ostream& operator<<(std::ostream& outputStream, const Matrix33& matrix) {
-    outputStream << matrix;
+    outputStream << matrix.ToString();
     return outputStream;
 }
 

@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <ostream>
+#include <string>
 
 namespace math {
 
@@ -14,10 +15,6 @@ struct Vector3 {
     Vector3() = default;
     Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
     Vector3(const Vector3& other) : x(other.x), y(other.y), z(other.z) {}
-
-    static float Dot(const Vector3& lhs, const Vector3& rhs);
-    static Vector3 Cross(const Vector3& lhs, const Vector3& rhs);
-    static float Distance(const Vector3& lhs, const Vector3& rhs);
 
     float operator[](std::size_t index) const { return *(&x + index); }
     float& operator[](std::size_t index) { return *(&x + index); }
@@ -47,5 +44,9 @@ Vector3 operator*(const Vector3& vector, float scalar);
 Vector3 operator/(const Vector3& vector, float scalar);
 
 std::ostream& operator<<(std::ostream& outputStream, const Vector3& vector);
+
+float Dot(const Vector3& lhs, const Vector3& rhs);
+Vector3 Cross(const Vector3& lhs, const Vector3& rhs);
+float Distance(const Vector3& lhs, const Vector3& rhs);
 
 } // namespace math

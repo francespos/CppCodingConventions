@@ -1,4 +1,3 @@
-#include "foo/foo.hpp"
 #include "math/vector3.hpp"
 #include <iostream>
 
@@ -22,15 +21,15 @@ int main() {
     std::cout << "vector1 + vector2 = " << vector1 + vector2 << "\n";
     std::cout << "vector1 - vector2 = " << vector1 - vector2 << "\n\n";
 
-    std::cout << "Dot(vector1, vector2) = " << math::Vector3::Dot(vector1, vector2) << "\n";
-    std::cout << "Cross(vector1, vector2) = " << math::Vector3::Cross(vector1, vector2) << "\n\n";
+    std::cout << "Dot(vector1, vector2) = " << math::Dot(vector1, vector2) << "\n";
+    std::cout << "Cross(vector1, vector2) = " << math::Cross(vector1, vector2) << "\n\n";
 
     std::cout << "-4.2f * vector = " << -4.2f * vector << "\n";
     std::cout << "vector * -4.2f = " << vector * -4.2f << "\n";
     std::cout << "vector / 395.98f = " << vector / 395.98f << "\n\n";
 
     std::cout << "Distance(vector1, vector2) = ";
-    std::cout << math::Vector3::Distance(vector1, vector2) << "\n\n";
+    std::cout << math::Distance(vector1, vector2) << "\n\n";
 
     math::Vector3 nullVector1{};
     std::cout << "nullVector1 = " << nullVector1 << "\n";
@@ -43,17 +42,4 @@ int main() {
     
     isNull = nullVector2.IsNull() ? "Yes" : "No";
     std::cout << "Is nullVector2 null? " << isNull << "\n\n";
-
-    std::cout << "FooConstant = " << foo::FooConstant << "\n\n";
-    std::cout << "g_fooGlobalVariable = " << foo::g_fooGlobalVariable << "\n";
-
-    foo::g_fooGlobalVariable += 1;
-    std::cout << "After 1 has been added to g_fooGlobalVariable:\n";
-    std::cout << "g_fooGlobalVariable = " << foo::g_fooGlobalVariable << "\n\n";
-
-    auto dog = foo::CreateUniqueDog("Bob", 4);
-    auto cat = foo::CreateSharedCat("Alice", 7);
-
-    std::cout << foo::WhatDoesItSay(*dog) << "\n";
-    std::cout << foo::WhatDoesItSay(*cat) << "\n\n";
 }

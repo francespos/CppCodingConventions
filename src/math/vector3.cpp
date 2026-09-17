@@ -6,22 +6,6 @@
 
 namespace math {
 
-float Vector3::Dot(const Vector3& lhs, const Vector3& rhs) {
-    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
-}
-
-Vector3 Vector3::Cross(const Vector3& lhs, const Vector3& rhs) {
-    auto x = lhs.y * rhs.z - lhs.z * rhs.y;
-    auto y = lhs.z * rhs.x - lhs.x * rhs.z; 
-    auto z = lhs.x * rhs.y - lhs.y * rhs.x;
-
-    return Vector3(x, y, z);
-}
-
-float Vector3::Distance(const Vector3& lhs, const Vector3& rhs) {
-    return (lhs - rhs).Norm();
-}
-
 Vector3& Vector3::operator+=(const Vector3& other) {
     *this = *this + other;
     return *this;
@@ -126,6 +110,22 @@ Vector3 operator/(const Vector3& vector, float scalar) {
 std::ostream& operator<<(std::ostream& outputStream, const Vector3& vector) {
     outputStream << vector.ToString();
     return outputStream;
+}
+
+float Dot(const Vector3& lhs, const Vector3& rhs) {
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
+
+Vector3 Cross(const Vector3& lhs, const Vector3& rhs) {
+    auto x = lhs.y * rhs.z - lhs.z * rhs.y;
+    auto y = lhs.z * rhs.x - lhs.x * rhs.z; 
+    auto z = lhs.x * rhs.y - lhs.y * rhs.x;
+
+    return Vector3(x, y, z);
+}
+
+float Distance(const Vector3& lhs, const Vector3& rhs) {
+    return (lhs - rhs).Norm();
 }
 
 } // namespace math
