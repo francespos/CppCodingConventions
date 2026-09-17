@@ -1,7 +1,7 @@
 add_executable(CppCodingConventions)
 
-target_sources(CppCodingConventions PRIVATE main.cpp math/Vector3.cpp math/Vector3.cpp
-    math/Matrix33.cpp foo/foo.cpp)
+target_sources(CppCodingConventions PRIVATE main.cpp math/vector3.cpp math/vector3.cpp
+    math/matrix33.cpp foo/foo.cpp)
 
 set_property(TARGET CppCodingConventions PROPERTY CXX_STANDARD 17)
 
