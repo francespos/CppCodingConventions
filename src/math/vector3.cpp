@@ -27,7 +27,7 @@ Vector3& Vector3::operator/=(float scalar) {
 }
 
 bool Vector3::IsNull() const {
-    return *this == Vector3{0.0f, 0.0f, 0.0f};
+    return *this == Vector3{};
 }
 
 float Vector3::Norm() const {
