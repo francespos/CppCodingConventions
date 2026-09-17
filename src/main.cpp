@@ -1,6 +1,5 @@
 #include "foo/foo.hpp"
 #include "math/vector3.hpp"
-
 #include <iostream>
 
 int main() {
@@ -45,7 +44,7 @@ int main() {
     isNull = nullVector2.IsNull() ? "Yes" : "No";
     std::cout << "Is nullVector2 null? " << isNull << "\n\n";
 
-    std::cout << "k_fooConstant = " << foo::k_fooConstant << "\n\n";
+    std::cout << "FooConstant = " << foo::FooConstant << "\n\n";
     std::cout << "g_fooGlobalVariable = " << foo::g_fooGlobalVariable << "\n";
 
     foo::g_fooGlobalVariable += 1;

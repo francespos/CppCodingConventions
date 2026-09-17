@@ -10,12 +10,12 @@ namespace foo {
 
 // This is an extended comment. Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
 // bla bla.
-constexpr double k_fooConstant = 43.3853287582033572947; // this is an inline comment
+constexpr double FooConstant = 43.3853287582033572947; // this is an inline comment
 
 // Short comment
 inline std::uint32_t g_fooGlobalVariable = 33934357; 
 
-enum class GreekLetter : std::uint8_t { k_alpha, k_beta, k_gamma, k_delta };
+enum class GreekLetter : std::uint8_t { Alpha, Beta, Gamma, Delta };
 
 class Animal {
 public:

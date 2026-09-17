@@ -65,9 +65,9 @@ std::string Vector3::ToString() const {
 }
 
 bool operator==(const Vector3& lhs, const Vector3& rhs) {
-    if (std::abs(lhs.x - rhs.x) < detail::k_epsilon && 
-        std::abs(lhs.y - rhs.y) < detail::k_epsilon &&
-        std::abs(lhs.z - rhs.z) < detail::k_epsilon) 
+    if (std::abs(lhs.x - rhs.x) < detail::Epsilon && 
+        std::abs(lhs.y - rhs.y) < detail::Epsilon &&
+        std::abs(lhs.z - rhs.z) < detail::Epsilon) 
     {
         return true;
     }
