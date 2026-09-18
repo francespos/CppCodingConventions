@@ -1,6 +1,6 @@
 add_executable(CppCodingConventions)
 
-target_sources(CppCodingConventions PRIVATE main.cpp math/vector2.cpp math/matrix22.cpp)
+target_sources(CppCodingConventions PRIVATE main.cpp math/vec2.cpp math/mat22.cpp)
 set_property(TARGET CppCodingConventions PROPERTY CXX_STANDARD 17)
 
 target_link_libraries(CppCodingConventions PRIVATE m)
