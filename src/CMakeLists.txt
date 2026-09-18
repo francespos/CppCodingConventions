@@ -1,7 +1,7 @@
-add_executable(CppCodingConventions)
+set(LPX_SRC math/vec2.cpp math/mat2.cpp)
 
-target_sources(CppCodingConventions PRIVATE main.cpp math/vec2.cpp math/mat2.cpp)
-set_property(TARGET CppCodingConventions PROPERTY CXX_STANDARD 17)
+add_library(lpx STATIC ${LPX_SRC})
+set_property(TARGET lpx PROPERTY CXX_STANDARD 17)
 
-target_link_libraries(CppCodingConventions PRIVATE m)
-target_include_directories(CppCodingConventions PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(lpx PUBLIC m)
+target_include_directories(lpx PUBLIC ${CMAKE_SOURCE_DIR}/include)
