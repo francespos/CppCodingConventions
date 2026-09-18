@@ -1,6 +1,8 @@
-#include "math/vec2.hpp"
-#include "math/float.hpp"
+#include "lpx/math/vec2.hpp"
+#include "lpx/math/float.hpp"
 #include <cmath>
+
+namespace lpx {
 
 bool operator==(const Vec2& lhs, const Vec2& rhs) {
     return std::abs(lhs.x - rhs.x) < Epsilon && std::abs(lhs.y - rhs.y) < Epsilon;
@@ -11,62 +13,62 @@ bool operator!=(const Vec2& lhs, const Vec2& rhs) {
 }
 
 Vec2 operator+(const Vec2& lhs, const Vec2& rhs) {
-    Vec2 result;
+    Vec2 rslt;
 
-    result.x = lhs.x + rhs.x;
-    result.y = lhs.y + rhs.y;
+    rslt.x = lhs.x + rhs.x;
+    rslt.y = lhs.y + rhs.y;
 
-    return result;
+    return rslt;
 }
 
 Vec2 operator-(const Vec2& lhs, const Vec2& rhs) {
-    Vec2 result;
+    Vec2 rslt;
 
-    result.x = lhs.x - rhs.x;
-    result.y = lhs.y - rhs.y;
+    rslt.x = lhs.x - rhs.x;
+    rslt.y = lhs.y - rhs.y;
 
-    return result;
+    return rslt;
 }
 
-Vec2 operator*(const Vec2& vector, float scalar) {
-    Vec2 result;
+Vec2 operator*(const Vec2& vec, float k) {
+    Vec2 rslt;
 
-    result.x = vector.x * scalar;
-    result.y = vector.y * scalar;
+    rslt.x = vec.x * k;
+    rslt.y = vec.y * k;
 
-    return result;
+    return rslt;
 }
 
-Vec2 operator*(float scalar, const Vec2& vector) {
-    Vec2 result;
+Vec2 operator*(float k, const Vec2& vec) {
+    Vec2 rslt;
 
-    result.x = vector.x * scalar;
-    result.y = vector.y * scalar;
+    rslt.x = vec.x * k;
+    rslt.y = vec.y * k;
 
-    return result;
+    return rslt;
 }
 
-Vec2 operator/(const Vec2& vector, float scalar) {
-    Vec2 result;
+Vec2 operator/(const Vec2& vec, float k) {
+    Vec2 rslt;
 
-    result.x = vector.x / scalar;
-    result.y = vector.y / scalar;
+    rslt.x = vec.x / k;
+    rslt.y = vec.y / k;
 
-    return result;
+    return rslt;
 }
 
-float Length(const Vec2& vector) {
-    return std::sqrt(vector.x * vector.x + vector.y * vector.y);
+float Length(const Vec2& vec) {
+    return std::sqrt(vec.x * vec.x + vec.y * vec.y);
 }
 
-Vec2 Normalize(const Vec2& vector) {
-    auto length = Length(vector);
-    Vec2 result;
+Vec2 Normalize(const Vec2& vec) {
+    auto len = Length(vec);
+    Vec2 rslt;
 
-    result.x = vector.x / length;
-    result.y = vector.y / length;
+    rslt.x = vec.x / len;
+    rslt.y = vec.y / len;
 
-    return result;
+    return rslt;
 }
 
 float Dot(const Vec2& lhs, const Vec2& rhs) {
@@ -80,3 +82,5 @@ float Cross(const Vec2& lhs, const Vec2& rhs) {
 float Distance(const Vec2& lhs, const Vec2& rhs) {
     return Length(lhs - rhs);
 }
+
+} // namespace lpx

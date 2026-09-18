@@ -1,2 +1,2 @@
-# Unknown
-A 2D Physics Engine.
+# lpx
+lpx (Lightweight Physics eXtension) is a 2D Physics Engine.
