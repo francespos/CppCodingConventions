@@ -4,15 +4,59 @@
 
 namespace lpx {
 
-bool operator==(const Vec2& lhs, const Vec2& rhs) {
+Vec2& Vec2::operator+=(Vec2 other) {
+    x += other.x;
+    y += other.y;
+    return *this;
+}
+
+Vec2& Vec2::operator-=(Vec2 other) {
+    x -= other.x;
+    y -= other.y;
+    return *this;
+}
+
+Vec2& Vec2::operator*=(float k) {
+    x *= k;
+    y *= k;
+    return *this;
+}
+
+Vec2& Vec2::operator/=(float k) {
+    x /= k;
+    y /= k;
+    return *this;
+}
+
+float Vec2::Length() const {
+    return std::sqrt(x * x + y * y);
+}
+
+Vec2 Vec2::Normalized() const {
+    auto len = Length();
+    Vec2 rslt;
+
+    rslt.x = x / len;
+    rslt.y = y / len;
+
+    return rslt;
+}
+
+void Vec2::Normalize() {
+    auto len = Length();
+    x /= len;
+    y /= len;
+}
+
+bool operator==(Vec2 lhs, Vec2 rhs) {
     return std::abs(lhs.x - rhs.x) < Epsilon && std::abs(lhs.y - rhs.y) < Epsilon;
 }
 
-bool operator!=(const Vec2& lhs, const Vec2& rhs) {
+bool operator!=(Vec2 lhs, Vec2 rhs) {
     return std::abs(lhs.x - rhs.x) >= Epsilon || std::abs(lhs.y - rhs.y) >= Epsilon;
 }
 
-Vec2 operator+(const Vec2& lhs, const Vec2& rhs) {
+Vec2 operator+(Vec2 lhs, Vec2 rhs) {
     Vec2 rslt;
 
     rslt.x = lhs.x + rhs.x;
@@ -21,7 +65,7 @@ Vec2 operator+(const Vec2& lhs, const Vec2& rhs) {
     return rslt;
 }
 
-Vec2 operator-(const Vec2& lhs, const Vec2& rhs) {
+Vec2 operator-(Vec2 lhs, Vec2 rhs) {
     Vec2 rslt;
 
     rslt.x = lhs.x - rhs.x;
@@ -30,7 +74,7 @@ Vec2 operator-(const Vec2& lhs, const Vec2& rhs) {
     return rslt;
 }
 
-Vec2 operator*(const Vec2& vec, float k) {
+Vec2 operator*(Vec2 vec, float k) {
     Vec2 rslt;
 
     rslt.x = vec.x * k;
@@ -39,7 +83,7 @@ Vec2 operator*(const Vec2& vec, float k) {
     return rslt;
 }
 
-Vec2 operator*(float k, const Vec2& vec) {
+Vec2 operator*(float k, Vec2 vec) {
     Vec2 rslt;
 
     rslt.x = vec.x * k;
@@ -48,7 +92,7 @@ Vec2 operator*(float k, const Vec2& vec) {
     return rslt;
 }
 
-Vec2 operator/(const Vec2& vec, float k) {
+Vec2 operator/(Vec2 vec, float k) {
     Vec2 rslt;
 
     rslt.x = vec.x / k;
@@ -57,30 +101,16 @@ Vec2 operator/(const Vec2& vec, float k) {
     return rslt;
 }
 
-float Length(const Vec2& vec) {
-    return std::sqrt(vec.x * vec.x + vec.y * vec.y);
-}
-
-Vec2 Normalize(const Vec2& vec) {
-    auto len = Length(vec);
-    Vec2 rslt;
-
-    rslt.x = vec.x / len;
-    rslt.y = vec.y / len;
-
-    return rslt;
-}
-
-float Dot(const Vec2& lhs, const Vec2& rhs) {
+float Dot(Vec2 lhs, Vec2 rhs) {
     return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
-float Cross(const Vec2& lhs, const Vec2& rhs) {
+float Cross(Vec2 lhs, Vec2 rhs) {
     return lhs.x * rhs.y - lhs.y * rhs.x;
 }
 
-float Distance(const Vec2& lhs, const Vec2& rhs) {
-    return Length(lhs - rhs);
+float Distance(Vec2 lhs, Vec2 rhs) {
+    return (lhs - rhs).Length();
 }
 
 } // namespace lpx
