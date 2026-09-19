@@ -47,18 +47,15 @@ bool operator!=(Vec2 lhs, Vec2 rhs) {
 }
 
 Vec2 operator+(Vec2 lhs, Vec2 rhs) {
-    lhs += rhs;
-    return lhs;
+    return lhs += rhs;
 }
 
 Vec2 operator-(Vec2 lhs, Vec2 rhs) {
-    lhs -= rhs;
-    return lhs;
+    return lhs -= rhs;
 }
 
 Vec2 operator*(Vec2 vec, float k) {
-    vec *= k;
-    return vec;
+    return vec *= k;
 }
 
 Vec2 operator*(float k, Vec2 vec) {
@@ -66,8 +63,7 @@ Vec2 operator*(float k, Vec2 vec) {
 }
 
 Vec2 operator/(Vec2 vec, float k) {
-    vec /= k;
-    return vec;
+    return vec /= k;
 }
 
 float Dot(Vec2 lhs, Vec2 rhs) {
