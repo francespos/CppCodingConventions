@@ -12,13 +12,13 @@ struct Vec2 {
 
     Vec2& operator+=(Vec2 other);
     Vec2& operator-=(Vec2 other);
-    
+
     Vec2& operator*=(float k);
     Vec2& operator/=(float k);
 
     float Length() const;
-
     Vec2 Normalized() const;
+
     void Normalize();
 };
 

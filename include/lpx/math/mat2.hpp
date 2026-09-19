@@ -7,6 +7,9 @@ namespace lpx {
 struct Mat2 { 
     Vec2 col1, col2; 
 
+    Mat2() = default;
+    Mat2(float m00, float m01, float m10, float m11) : col1(m00, m10), col2(m01, m11) {}
+
     Mat2& operator+=(Mat2 other);
     Mat2& operator-=(Mat2 other);
 
@@ -14,8 +17,8 @@ struct Mat2 {
     Mat2& operator/=(float k);
 
     float Determinant() const;
-
     Mat2 Inverse() const;
+
     void Invert();
 };
 

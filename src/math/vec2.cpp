@@ -23,9 +23,7 @@ Vec2& Vec2::operator*=(float k) {
 }
 
 Vec2& Vec2::operator/=(float k) {
-    x /= k;
-    y /= k;
-    return *this;
+    return *this *= 1.0f / k;
 }
 
 float Vec2::Length() const {
@@ -33,19 +31,11 @@ float Vec2::Length() const {
 }
 
 Vec2 Vec2::Normalized() const {
-    auto len = Length();
-    Vec2 rslt;
-
-    rslt.x = x / len;
-    rslt.y = y / len;
-
-    return rslt;
+    return *this / Length();
 }
 
 void Vec2::Normalize() {
-    auto len = Length();
-    x /= len;
-    y /= len;
+    *this /= Length();
 }
 
 bool operator==(Vec2 lhs, Vec2 rhs) {
@@ -53,52 +43,31 @@ bool operator==(Vec2 lhs, Vec2 rhs) {
 }
 
 bool operator!=(Vec2 lhs, Vec2 rhs) {
-    return std::abs(lhs.x - rhs.x) >= Epsilon || std::abs(lhs.y - rhs.y) >= Epsilon;
+    return !(lhs == rhs);
 }
 
 Vec2 operator+(Vec2 lhs, Vec2 rhs) {
-    Vec2 rslt;
-
-    rslt.x = lhs.x + rhs.x;
-    rslt.y = lhs.y + rhs.y;
-
-    return rslt;
+    lhs += rhs;
+    return lhs;
 }
 
 Vec2 operator-(Vec2 lhs, Vec2 rhs) {
-    Vec2 rslt;
-
-    rslt.x = lhs.x - rhs.x;
-    rslt.y = lhs.y - rhs.y;
-
-    return rslt;
+    lhs -= rhs;
+    return lhs;
 }
 
 Vec2 operator*(Vec2 vec, float k) {
-    Vec2 rslt;
-
-    rslt.x = vec.x * k;
-    rslt.y = vec.y * k;
-
-    return rslt;
+    vec *= k;
+    return vec;
 }
 
 Vec2 operator*(float k, Vec2 vec) {
-    Vec2 rslt;
-
-    rslt.x = vec.x * k;
-    rslt.y = vec.y * k;
-
-    return rslt;
+    return vec * k;
 }
 
 Vec2 operator/(Vec2 vec, float k) {
-    Vec2 rslt;
-
-    rslt.x = vec.x / k;
-    rslt.y = vec.y / k;
-
-    return rslt;
+    vec /= k;
+    return vec;
 }
 
 float Dot(Vec2 lhs, Vec2 rhs) {

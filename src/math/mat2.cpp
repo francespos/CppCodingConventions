@@ -3,27 +3,25 @@
 namespace lpx {
 
 Mat2& Mat2::operator+=(Mat2 other) {
-    col1 = col1 + other.col1;
-    col2 = col2 + other.col2;
+    col1 += other.col1;
+    col2 += other.col2;
     return *this;
 }
 
 Mat2& Mat2::operator-=(Mat2 other) {
-    col1 = col1 - other.col1;
-    col2 = col2 - other.col2;
+    col1 -= other.col1;
+    col2 -= other.col2;
     return *this;
 }
 
 Mat2& Mat2::operator*=(float k) {
-    col1 = col1 * k;
-    col2 = col2 * k;
+    col1 *= k;
+    col2 *= k;
     return *this;
 }
 
 Mat2& Mat2::operator/=(float k) {
-    col1 = col1 / k;
-    col2 = col2 / k;
-    return *this;
+    return *this *= (1.0f / k);
 }
 
 float Mat2::Determinant() const {
@@ -31,27 +29,19 @@ float Mat2::Determinant() const {
 }
 
 Mat2 Mat2::Inverse() const {
-    auto det = Determinant();
+    auto inv_det = 1.0f / Determinant();
     Mat2 rslt;
 
-    rslt.col1.x =  col2.y / det;
-    rslt.col1.y = -col2.x / det;
-    rslt.col2.x = -col1.y / det;
-    rslt.col2.y =  col1.x / det;
+    rslt.col1.x =  col2.y * inv_det;
+    rslt.col1.y = -col2.x * inv_det;
+    rslt.col2.x = -col1.y * inv_det;
+    rslt.col2.y =  col1.x * inv_det;
 
     return rslt;
 }
 
 void Mat2::Invert() {
-    auto det = Determinant();
-    Mat2 rslt;
-
-    rslt.col1.x =  col2.y / det;
-    rslt.col1.y = -col2.x / det;
-    rslt.col2.x = -col1.y / det;
-    rslt.col2.y =  col1.x / det;
-
-    *this = rslt;
+    *this = Inverse();
 }
 
 bool operator==(Mat2 lhs, Mat2 rhs) {  
@@ -59,52 +49,27 @@ bool operator==(Mat2 lhs, Mat2 rhs) {
 }
 
 bool operator!=(Mat2 lhs, Mat2 rhs) {
-    return lhs.col1 != rhs.col1 || lhs.col2 != rhs.col2;
+    return !(lhs == rhs);
 }
 
 Mat2 operator+(Mat2 lhs, Mat2 rhs) {
-    Mat2 rslt;
-
-    rslt.col1 = lhs.col1 + rhs.col1; 
-    rslt.col2 = lhs.col2 + rhs.col2;
-
-    return rslt;
+    return lhs += rhs;
 }
 
 Mat2 operator-(Mat2 lhs, Mat2 rhs) {
-    Mat2 rslt;
-
-    rslt.col1 = lhs.col1 - rhs.col1; 
-    rslt.col2 = lhs.col2 - rhs.col2;
-
-    return rslt;
+    return lhs -= rhs;
 }
 
 Mat2 operator*(Mat2 mat, float k) {
-    Mat2 rslt;
-
-    rslt.col1 = mat.col1 * k; 
-    rslt.col2 = mat.col2 * k;
-
-    return rslt;
+    return mat *= k;
 }
 
 Mat2 operator*(float k, Mat2 mat) {
-    Mat2 rslt;
-
-    rslt.col1 = mat.col1 * k; 
-    rslt.col2 = mat.col2 * k;
-
-    return rslt;
+    return mat * k;
 }
 
 Mat2 operator/(Mat2 mat, float k) {
-    Mat2 rslt;
-
-    rslt.col1 = mat.col1 / k; 
-    rslt.col2 = mat.col2 / k;
-
-    return rslt;
+    return mat /= k;
 }
 
 Mat2 operator*(Mat2 lhs, Mat2 rhs) {
