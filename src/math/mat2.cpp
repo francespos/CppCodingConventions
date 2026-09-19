@@ -24,6 +24,10 @@ Mat2& Mat2::operator/=(float k) {
     return *this *= (1.0f / k);
 }
 
+Mat2& Mat2::operator*=(Mat2 other) {
+    return *this = *this * other;
+}
+
 float Mat2::Determinant() const {
     return col1.x * col2.y - col2.x * col1.y;
 }
@@ -40,8 +44,8 @@ Mat2 Mat2::Inverse() const {
     return rslt;
 }
 
-void Mat2::Invert() {
-    *this = Inverse();
+Mat2& Mat2::Invert() {
+    return *this = Inverse();
 }
 
 bool operator==(Mat2 lhs, Mat2 rhs) {  

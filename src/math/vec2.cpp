@@ -34,8 +34,8 @@ Vec2 Vec2::Normalized() const {
     return *this / Length();
 }
 
-void Vec2::Normalize() {
-    *this /= Length();
+Vec2& Vec2::Normalize() {
+    return *this /= Length();
 }
 
 bool operator==(Vec2 lhs, Vec2 rhs) {

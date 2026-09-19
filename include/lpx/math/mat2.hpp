@@ -16,10 +16,12 @@ struct Mat2 {
     Mat2& operator*=(float k);
     Mat2& operator/=(float k);
 
+    Mat2& operator*=(Mat2 other);
+
     float Determinant() const;
     Mat2 Inverse() const;
 
-    void Invert();
+    Mat2& Invert();
 };
 
 bool operator==(Mat2 lhs, Mat2 rhs);

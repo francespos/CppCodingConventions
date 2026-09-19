@@ -19,7 +19,7 @@ struct Vec2 {
     float Length() const;
     Vec2 Normalized() const;
 
-    void Normalize();
+    Vec2& Normalize();
 };
 
 bool operator==(Vec2 lhs, Vec2 rhs);
